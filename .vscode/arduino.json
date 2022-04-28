@@ -1,0 +1,6 @@
+{
+    "board": "arduino:samd:adafruit_circuitplayground_m0",
+    "sketch": "party-mow.ino",
+    "port": "/dev/tty.usbmodem14101",
+    "programmer": "arduino:edbg"
+}
