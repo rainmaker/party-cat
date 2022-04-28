@@ -13,14 +13,13 @@ void setup() {
 void loop() {
    CircuitPlayground.setBrightness(150);
 
-
    loudnessReact();
 
 //  //sparkleRainbow
-//  for(int i = 0; i < 10; i++) {
-//    sparkleRainbow();
-//    delay(100);
-//  }
+ for(int i = 0; i < 10; i++) {
+   rainbow();
+   delay(100);
+ }
   
 //  //red rotate
 //  rotateColor(0xff0000);
@@ -64,9 +63,8 @@ void freqReact(){}
 
 const uint32_t rainbow[] = {0xc70039, 0xe17102, 0xffc300, 0x61d802, 0x022bd8, 0x4b0082, 0x9400d3, 0xaa336a};
 
-void sparkleRainbow() {
+void rainbow() {
   for (int i = 0; i < 8; i++){
-    //randomSparkle();
     setAllPixels(rainbow[i]);
     Serial.print(i);
     Serial.println();
