@@ -8,12 +8,15 @@
 // for 8G, try 10-20. for 4G try 20-40. for 2G try 40-80
 #define CLICKTHRESHHOLD 200
 bool rightButtonPressed, leftButtonPressed;
-int mode = 0;
+// int mode = 0;
+enum Mode { ModeLoudnessReact, ModeRainbowFade, ModeSlowBlinkRed, ModeRotateGreen, Last};
+Mode selectedMode;
 
 void setup() {
    // Initialize the circuit playground
   CircuitPlayground.begin();
   Serial.begin(9600);
+  selectedMode = ModeRainbowFade;
 
   // setupTap();
 }
@@ -27,17 +30,19 @@ void loop() {
     changeMode();
   }
 
-  switch(mode){
-    case 0:
+  temperatureReact();
+
+  switch(selectedMode){
+    case ModeLoudnessReact:
       loudnessReact();
       break;
-    case 1:
+    case ModeRainbowFade:
       rainbowFade();
       break;
-    case 2:
+    case ModeSlowBlinkRed:
       slowBlink(0xff0000);
       break;
-    case 3:
+    case ModeRotateGreen:
       rotateColor(0x00ff00);
       break;
   }
@@ -45,8 +50,8 @@ void loop() {
 
 void changeMode() {
   Serial.println("Changing mode");
-  if (mode == 3) {
-    mode = 0;
+  if (selectedMode == Last) {
+    selectedMode = 0;
   } else {
     mode++;
   }
