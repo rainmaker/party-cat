@@ -45,7 +45,6 @@ void loop() {
 
 void changeMode() {
   Serial.println("Changing mode");
-  Serial.println("Mode is now " + mode);
   if (mode == 3) {
     mode = 0;
   } else {
@@ -56,9 +55,7 @@ void changeMode() {
 bool modeChangeInterrupt() {
   rightButtonPressed = CircuitPlayground.rightButton();
   leftButtonPressed = CircuitPlayground.leftButton();
-  Serial.println("I am here");
   if (leftButtonPressed || rightButtonPressed) {
-    Serial.println("Button is pressed");
     return true;
   }
   return false;
