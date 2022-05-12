@@ -1,4 +1,4 @@
-# party-mow
+# party-cat
 
 A small microcontroller project using a Playground Express board from Adafruit. Replacing the board from inside a cat nightlight
 
